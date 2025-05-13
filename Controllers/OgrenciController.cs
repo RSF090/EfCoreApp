@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EfCoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EfCoreApp.Controllers
 {
@@ -24,7 +25,13 @@ namespace EfCoreApp.Controllers
         {
             _context.Ogrenciler.Add(model);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var ogrenciler = await _context.Ogrenciler.ToListAsync();
+            return View(ogrenciler);
         }
     }
 }
