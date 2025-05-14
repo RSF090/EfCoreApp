@@ -1,35 +1,39 @@
 @model IEnumerable<Ogrenci>
-    <h2>Öğrenci Listesi</h2>
-    <hr>
-    <a href="/Ogrenci/Create" class="btn btn-primary">Öğrenci Ekle</a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th style="width: 150px">@Html.DisplayNameFor(m=>m.OgrenciId)</th>
-                <th>@Html.DisplayNameFor(m=>m.OgrenciAd)</th>
-                <th>@Html.DisplayNameFor(m=>m.OgrenciSoyad)</th>
-                <th style="width: 150px"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var ogrenci in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => ogrenci.OgrenciId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => ogrenci.OgrenciAd)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => ogrenci.OgrenciSoyad)
-                    </td>
-                    <td>
-                        <a href=""class="btn btn-sm btn-primary">Detay</a>
-                        <a href=""class="btn btn-sm btn-danger">Sil</a>
 
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<h2>Öğrenci Listesi</h2>
+<hr />
+<a asp-controller="Ogrenci" asp-action="Create" class="btn btn-primary">Öğrenci Ekle</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:150px">@Html.DisplayNameFor(model => model.OgrenciId)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrenciAd)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrenciSoyad)</th>
+            <th style="width:150px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogrenci in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => ogrenci.OgrenciId)</td>
+                <td>@Html.DisplayFor(m => ogrenci.OgrenciAd)</td>
+                <td>@Html.DisplayFor(m => ogrenci.OgrenciSoyad)</td>
+                <td>
+                    <!-- DÜZELTİLEN SATIR -->
+                    <a asp-controller="Ogrenci"
+                       asp-action="Edit"
+                       asp-route-id="@ogrenci.OgrenciId"
+                       class="btn btn-sm btn-primary">Detay</a>
+
+                    <!-- Sil için örnek -->
+                    <a asp-controller="Ogrenci"
+                       asp-action="Delete"
+                       asp-route-id="@ogrenci.OgrenciId"
+                       class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -33,5 +33,20 @@ namespace EfCoreApp.Controllers
             var ogrenciler = await _context.Ogrenciler.ToListAsync();
             return View(ogrenciler);
         }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+             if (id == null)
+            {
+                return NotFound();
+            }
+            var ogrenci = await _context.Ogrenciler.FindAsync(id);
+            if (ogrenci == null)
+            {
+                return NotFound();
+            }
+            return View(ogrenci);
+        }
     }
 }

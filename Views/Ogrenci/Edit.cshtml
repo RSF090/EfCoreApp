@@ -1,7 +1,8 @@
 @model Ogrenci
- <h2>Öğrenci Ekle</h2>
+ <h2>Öğrenci Güncelleme</h2>
     <hr>
-<form asp-controller="Ogrenci" asp-action="Create" method="post">
+<form asp-controller="Ogrenci" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="OgrenciId">
     <div class="mb-3">
         <label asp-for="OgrenciAd" class="form-label">Öğrenci Adı</label>
         <input type="text" asp-for="OgrenciAd" class="form-control" />
@@ -24,5 +25,5 @@
     
         <button type="submit" class="btn-secondary">Kaydet</button>
 
-
+    
 </form>
