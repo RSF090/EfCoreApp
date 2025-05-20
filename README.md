@@ -1,0 +1,1 @@
+buglar giderildi
