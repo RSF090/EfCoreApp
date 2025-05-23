@@ -67,7 +67,7 @@ namespace EfCoreApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete([FromForm]int id)
         {
             var ogrenci = await _context.Ogrenciler.FindAsync(id);
             if (ogrenci == null)

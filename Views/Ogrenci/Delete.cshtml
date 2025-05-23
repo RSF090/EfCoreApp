@@ -4,7 +4,7 @@
 
     <form asp-action="Delete" method="post">
 
-        <input type="hidden" name="@Model.OgrenciId" />
+        <input type="hidden" value="@Model.OgrenciId" name="id" />
         <button type="submit" class="btn btn-danger">Sil</button>
         <a asp-action="Index" class="btn btn-secondary">İptal</a>
 
