@@ -1,1 +1,2 @@
 buglar giderildi
+İyileştirmeler yapıldı
