@@ -60,7 +60,7 @@ namespace EfCoreApp.Controllers
             }
             var ogrenci = await _context.Ogrenciler.FindAsync(id);
             if (ogrenci == null)
-            {
+            { 
                 return NotFound();
             }
             return View(ogrenci);
